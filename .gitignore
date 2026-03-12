@@ -1,0 +1,16 @@
+# OS固有の不要ファイル
+.DS_Store
+Thumbs.db
+
+# 開発ツール・ライブラリ
+node_modules/
+.env
+
+# ビルド・パッケージ済みファイル
+dist/
+*.zip
+*.crx
+
+# エディタ設定
+.vscode/
+.idea/

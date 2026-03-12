@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "AI Mercari Analyst Pro",
+  "version": "1.6",
+  "permissions": [
+    "sidePanel",
+    "contextMenus",
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://jp.mercari.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jp.mercari.com/search*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
