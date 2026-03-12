@@ -1,5 +1,5 @@
 // 1. APIキーの設定
-const GEMINI_API_KEY = 'AIzaSyCHgSjML9Tr__UNZ09OFWsaLIkp48V9LMQ';
+const GEMINI_API_KEY = 'あなたのキー';
 
 let detectedPrices = [];
 
