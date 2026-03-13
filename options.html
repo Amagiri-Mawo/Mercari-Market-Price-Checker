@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mercari Analyst Pro - 設定</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 10px rgba(0, 0, 0, 0.02);
+            width: 100%;
+            max-width: 480px;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: 800;
+            color: #ff002b;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        input[type="password"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: monospace;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ff002b;
+            box-shadow: 0 0 0 4px rgba(255, 0, 43, 0.1);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        #save-btn {
+            background: #ff002b;
+            color: white;
+            box-shadow: 0 4px 14px rgba(255, 0, 43, 0.3);
+        }
+
+        #save-btn:hover {
+            background: #e60026;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 43, 0.4);
+        }
+
+        #save-btn:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 12px 16px;
+            margin-top: 24px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #856404;
+        }
+
+        .info-box a {
+            color: #ff002b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .info-box a:hover {
+            text-decoration: underline;
+        }
+
+        #status-msg {
+            margin-top: 16px;
+            font-size: 14px;
+            text-align: center;
+            font-weight: 600;
+            min-height: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #status-msg.success {
+            color: #00aa00;
+            opacity: 1;
+        }
+
+        #status-msg.error {
+            color: #ff002b;
+            opacity: 1;
+        }
+
+        .toggle-visibility {
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            padding: 4px;
+            font-size: 12px;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Mercari Analyst Pro</h1>
+        <p class="subtitle">API設定</p>
+
+        <div class="form-group">
+            <label for="api-key">Gemini API キー</label>
+            <div class="input-wrapper">
+                <input type="password" id="api-key" placeholder="AIzaSy...">
+                <button type="button" class="toggle-visibility" id="toggle-visibility">表示</button>
+            </div>
+            <p style="font-size: 12px; color: #888; margin-top: 8px;">APIキーはブラウザ内に安全に保存されます。</p>
+        </div>
+
+        <div class="actions">
+            <button id="save-btn">保存する</button>
+        </div>
+
+        <div id="status-msg"></div>
+
+        <div class="info-box">
+            <p style="margin-top: 0; font-weight: bold;">🔑 APIキーの取得方法</p>
+            Google Cloudの<a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>から無料で取得できます。このキーがないとAI分析機能が利用できません。
+        </div>
+    </div>
+    <script src="options.js"></script>
+</body>
+</html>
