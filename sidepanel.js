@@ -85,26 +85,8 @@ window.addEventListener('load', () => {
 
       if (!response.ok) {
         console.error("Gemini API Error:", data);
-        let errorMsg = data.error?.message || '通信に失敗しました';
-        
-        // 原因究明のため、このAPIキーで使えるモデルの一覧を取得して表示する
-        try {
-            const listRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-            const listData = await listRes.json();
-            if (listData.models) {
-                const availableModels = listData.models
-                    .map(m => m.name.replace('models/', ''))
-                    .filter(name => name.includes('gemini'))
-                    .join(', ');
-                errorMsg += `\n\n【このAPIキーで利用可能なモデル】\n${availableModels || '(利用可能モデルなし)'}`;
-            }
-        } catch (err) {
-            console.error(err);
-        }
-
-        status.textContent = `APIエラー:\n${errorMsg}`;
+        status.textContent = `APIエラー: ${data.error?.message || '通信に失敗しました'}`;
         status.style.color = "#ff002b";
-        status.style.whiteSpace = "pre-wrap"; // 改行を表示するため
         btn.disabled = false;
         return; // エラー時はここで終了し、簡易計算を出さない
       }
